@@ -13,11 +13,11 @@ use Kalnoy\Nestedset\NestedSet;
 final readonly class MoveItem
 {
     /**
-     * @param non-negative-int|null $parent
+     * @param non-negative-int|string|null $parent
      * @param non-negative-int $from
      * @param non-negative-int $to
      */
-    public function __invoke(Model $node, ?int $parent, int $from, int $to): void
+    public function __invoke(Model $node, int|string|null $parent, int $from, int $to): void
     {
         if ($parent === $node->getAttribute(NestedSet::PARENT_ID)) {
             $this->moveItem($node, $from, $to);
